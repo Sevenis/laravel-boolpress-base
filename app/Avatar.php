@@ -10,6 +10,7 @@ class Avatar extends Model
     //che abbiamo rimosso il timestamps
     //nel migration
     public $timestamps = false;
+
     protected $fillable = [
         'telefono', 'avatar', 'user_id',
     ];

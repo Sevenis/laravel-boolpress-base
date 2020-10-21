@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAvatarsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateAvatarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('avatars', function (Blueprint $table) {
-            //tolgo l'id perché essendo una relazione 1 a 1
-            //basta la chiave esterna (l'user_id) che è UNICO.
-            // $table->id();
-            $table->string('telefono', 25);
-            $table->text('avatar');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->longtext('body');
+            $table->timestamps();
 
             $table->unsignedBigInteger('user_id');
 
@@ -38,6 +37,6 @@ class CreateAvatarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avatars');
+        Schema::dropIfExists('posts');
     }
 }
